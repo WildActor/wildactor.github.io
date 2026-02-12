@@ -5,7 +5,7 @@
   <title>WildActor: Unconstrained Identity-Preserving Video Generation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,7 +17,6 @@
       --accent-blue: #3273dc; 
       --text-primary: #1a1a1a;
       --text-secondary: #4a4a4a;
-      --text-muted: #8590a6;
       --shadow-card: 0 12px 40px rgba(0,0,0,0.1);
       --shadow-soft: 0 8px 30px rgba(0,0,0,0.06);
     }
@@ -32,34 +31,35 @@
     @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
     body { 
-      font-family: 'Inter', sans-serif; 
+      font-family: 'Noto Sans', sans-serif;
       background-color: #ffffff; 
       color: var(--text-primary); 
       line-height: 1.6;
     }
     
-    /* 标题样式 */
-    .publication-title.main-title {
-      font-size: 3.6rem !important; 
+    /* Title */
+    .publication-title-name {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 2.6rem !important; 
       font-weight: 800 !important;
       letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 0;
+      line-height: 1.1;
+      margin-bottom: 8px !important;
     }
-    
-    .publication-title.sub-title {
-      font-size: 2rem !important;
+    .publication-title-text {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 2.6rem !important; 
       font-weight: 700 !important;
       letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-      color: #333;
       line-height: 1.3;
+      margin-bottom: 2rem !important;
+      color: #363636;
     }
-    
+
+    .author-block { font-size: 1.25rem; }
     .author-block a { color: #3273dc; font-weight: 500; transition: color 0.2s; }
     .author-block a:hover { color: #1a1a1a; text-decoration: underline; }
 
-    /* 按钮样式 */
     .external-link { 
       background-color: #363636 !important; color: white !important; 
       border-radius: 30px !important; font-weight: 500; border: none !important; 
@@ -68,188 +68,169 @@
       margin: 0 4px 10px; 
     }
     .external-link:hover { 
-      background-color: #000 !important; 
-      transform: translateY(-2px); 
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background-color: #000 !important; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
     .icon { margin-right: 4px; display: inline-flex; align-items: center; justify-content: center; }
 
-    /* Showcase Header */
-    .showcase-header {
-      max-width: 1100px;
-      margin: 2.5rem auto 1rem;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .statement-title {
-      font-size: 1.5rem; 
-      font-weight: 400;     
-      color: #4a4a4a;
-      line-height: 1.5;
-    }
-    .highlight-core {
-      color: #000; font-weight: 800; position: relative; display: inline-block;
-    }
-    .highlight-core::after {
-      content: ""; position: absolute; bottom: 2px; left: 0; width: 100%; height: 8px;
-      background-color: rgba(50, 115, 220, 0.2); z-index: -1; transform: skewX(-10deg);
-    }
-    
-    .identity-sub {
-      font-size: 0.85rem;
-      color: #9aa0a6;
-      font-weight: 400;
-      display: inline-block;
-      margin: 0 4px;
+    section.section { padding: 4rem 1.5rem; }
+    .hero-body { padding-top: 3rem !important; padding-bottom: 2rem !important; }
+
+    .subtitle {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.15rem; font-weight: 400; color: #4a4a4a; line-height: 1.6;
     }
 
-    .highlight-cond {
-      font-weight: 700; color: var(--accent-blue);
-      background: linear-gradient(to right, rgba(50, 115, 220, 0.05), rgba(50, 115, 220, 0.1));
-      padding: 2px 8px; border-radius: 6px; margin: 0 2px;
-      -webkit-box-decoration-break: clone; box-decoration-break: clone;
-    }
-    
-    /* 移动端适配 */
-    @media screen and (max-width: 768px) {
-      .publication-title.main-title { font-size: 2.8rem !important; }
-      .publication-title.sub-title { font-size: 1.4rem !important; }
-      .statement-title { font-size: 1.2rem; }
-      .highlight-cond { display: inline-block; margin-top: 4px; }
-      .identity-sub { display: block; margin-top: 5px; margin-bottom: 5px; font-size: 0.8rem; }
-      .demo-card { flex-direction: column; height: auto; }
-      .column-ref, .column-video, .column-prompt { flex: 1 1 auto; width: 100%; }
-      .prompt-card { height: 200px; }
-      
-      .swiper-pagination { flex-wrap: wrap; justify-content: center; }
-      .swiper-pagination-bullet { width: 48px !important; height: 20px !important; margin: 3px !important; }
-      .swiper-button-next, .swiper-button-prev { width: 40px !important; height: 40px !important; }
+    /* --- Swiper Container --- */
+    .swiper { 
+      width: 100%; 
+      max-width: 100%; 
+      padding-bottom: 60px !important; /* 调整底部空间给分页器 */
+      position: relative; 
+      overflow: hidden; /* 关键修改：隐藏溢出，只显示当前一个 */
     }
 
-    /* Swiper & Card Styling */
-    .swiper { width: 100%; max-width: 1450px; padding-bottom: 80px !important; position: relative; }
-    
+    /* --- BEAUTIFIED NAVIGATION ARROWS --- */
     .swiper-button-next, .swiper-button-prev { 
-      color: #000 !important; background: rgba(255,255,255,0.9); border-radius: 50%; 
-      width: 50px; height: 50px; backdrop-filter: blur(5px); 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05);
+      opacity: 0; 
+      transform: scale(0.9);
+      background: rgba(255, 255, 255, 0.85); 
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 50%; 
+      width: 44px; height: 44px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      color: #333 !important;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .swiper:hover .swiper-button-next,
+    .swiper:hover .swiper-button-prev {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .swiper-button-next:hover, .swiper-button-prev:hover { 
+      background: #fff; 
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      transform: scale(1.05);
+      border-color: rgba(0,0,0,0.15);
+    }
+
+    .swiper-button-next::after, .swiper-button-prev::after { 
+      font-size: 16px !important; 
+      font-weight: 800; 
+    }
+
+    /* Pagination (Thumbnails) */
+    .swiper-pagination-bullet { 
+      width: 100px; height: 40px; background-color: #f0f0f0; opacity: 0.6; border-radius: 4px; 
+      background-size: contain; background-repeat: no-repeat; background-position: center; 
+      border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); margin: 0 6px !important; 
       transition: all 0.3s ease;
     }
-    .swiper-button-next:hover, .swiper-button-prev:hover { background: #fff; transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-    .swiper-button-next::after, .swiper-button-prev::after { font-size: 1.2rem !important; font-weight: 800; }
-    
-    .swiper-pagination { bottom: 10px !important; display: flex; justify-content: center; align-items: center; z-index: 10; }
-    .swiper-pagination-bullet { 
-      width: 100px; height: 40px; background-color: #f0f0f0; opacity: 0.6; 
-      border-radius: 4px; background-size: contain; background-repeat: no-repeat; background-position: center center;
-      border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: all 0.3s ease; margin: 0 6px !important; cursor: pointer;
+    .swiper-pagination-bullet-active { 
+      opacity: 1; border-color: #3273dc; transform: scale(1.1); background-color: #fff; 
+      box-shadow: 0 4px 10px rgba(50, 115, 220, 0.3);
     }
-    .swiper-pagination-bullet-active { opacity: 1; border-color: #3273dc; transform: scale(1.1); box-shadow: 0 4px 12px rgba(50, 115, 220, 0.4); background-color: #fff; }
 
-    /* Demo Card 布局 */
+    /* 2-COLUMN LAYOUT */
     .demo-card { 
-      display: flex; gap: 20px; background: #fff; padding: 25px; 
-      border-radius: 24px; box-shadow: var(--shadow-card); border: 1px solid #f0f0f0; 
-      height: 520px; align-items: stretch; box-sizing: border-box; 
+      display: flex; gap: 25px; 
+      background: #fff; padding: 25px; 
+      border-radius: 20px; box-shadow: var(--shadow-card); border: 1px solid #f0f0f0; 
+      height: 420px; 
+      align-items: stretch; box-sizing: border-box; 
+    }
+    
+    .col-header { 
+      font-size: 0.9rem !important; font-weight: 700 !important; color: #111 !important; 
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px !important; 
+      display: flex; align-items: center; justify-content: center; gap: 6px;
     }
 
-    .col-header { font-size: 0.9rem !important; font-weight: 700 !important; color: #111 !important; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px !important; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .column-inputs { flex: 0 0 35%; display: flex; flex-direction: column; min-width: 0; }
+    .column-result { flex: 0 0 63%; display: flex; flex-direction: column; }
 
-    .column-ref { flex: 0 0 26%; display: flex; flex-direction: column; }
-    .img-container { display: flex; flex-wrap: wrap; gap: 8px; flex-grow: 1; align-content: flex-start; }
-    .img-box { flex: 1 1 45%; max-height: 48%; }
-    .img-box img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #eee; background: #fcfcfc; }
-    
-    .column-video { flex: 0 0 53%; display: flex; flex-direction: column; }
-    .video-box { border: 3px solid #000; border-radius: 16px; overflow: hidden; background: #000; flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; }
-    video { width: 100%; height: 100%; object-fit: contain; display: block; }
+    /* Input Images */
+    .img-container { display: flex; gap: 8px; height: 160px; margin-bottom: 15px; }
+    .img-box { flex: 1; height: 100%; }
+    .img-box img { 
+      width: 100%; height: 100%; object-fit: contain; 
+      border-radius: 10px; border: 1px solid #eee; background: #fcfcfc; 
+    }
 
-    .column-prompt { flex: 0 0 17%; display: flex; flex-direction: column; min-width: 0; }
-    .prompt-card { background: #f8fbff; padding: 18px; border: 1px solid #eef4fc; border-radius: 14px; flex-grow: 1; overflow-y: auto; }
-    
-    .stage-label { font-weight: 800; font-size: 11px; color: #3273dc; display: block; margin-top: 14px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    /* Prompt Box */
+    .prompt-box-wrapper { flex-grow: 1; display: flex; flex-direction: column; min-height: 0; }
+    .prompt-card { 
+      background: #f8fbff; padding: 15px; 
+      border: 1px solid #eef4fc; border-radius: 12px; 
+      flex-grow: 1; overflow-y: auto; 
+    }
+    .stage-label { 
+      font-weight: 800; font-size: 10px; color: #3273dc; display: block; 
+      margin-top: 8px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; 
+    }
     .stage-label:first-child { margin-top: 0; }
-    .prompt-text { color: #2c3e50; font-size: 13.5px; line-height: 1.45; font-weight: 500; }
+    .prompt-text { color: #2c3e50; font-size: 13px; line-height: 1.4; font-weight: 500; }
+    .prompt-card::-webkit-scrollbar { width: 4px; }
+    .prompt-card::-webkit-scrollbar-thumb { background: #dce5f0; border-radius: 2px; }
 
-    /* General Section Styling */
-    .section-title { font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 2rem; letter-spacing: -0.02em; }
-    .content-block { font-size: 1.1rem; text-align: justify; max-width: 1000px; margin: 0 auto; color: var(--text-secondary); }
-    .method-img { width: 100%; border-radius: 16px; margin-bottom: 2rem; box-shadow: var(--shadow-soft); }
-    .desc-box { background: #f8f9fa; padding: 30px; border-radius: 16px; margin-top: 20px; }
-
-    footer { padding: 4rem 0; background: #fafafa; border-top: 1px solid #eee; }
-    
-    .prompt-card::-webkit-scrollbar { width: 6px; }
-    .prompt-card::-webkit-scrollbar-thumb { background: #dce5f0; border-radius: 3px; }
-    .prompt-card::-webkit-scrollbar-track { background: transparent; }
-
-    /* --- LAYOUT CONTROLLER --- */
-    .layout-control-panel {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: rgba(30, 30, 30, 0.9);
-      color: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      z-index: 9999;
-      font-size: 14px;
-      backdrop-filter: blur(10px);
-      width: 260px;
+    /* Video Box */
+    .video-box { 
+      border: 1px solid #eee; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      background: #fcfcfc; 
+      flex-grow: 1; 
+      display: flex; align-items: center; justify-content: center; position: relative; 
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
     }
-    .layout-control-panel h3 { font-weight: 700; margin-bottom: 15px; font-size: 16px; border-bottom: 1px solid #555; padding-bottom: 8px;}
-    .control-item { margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
-    .control-item label { cursor: pointer; }
     
-    /* Toggle Switch */
-    .switch { position: relative; display: inline-block; width: 40px; height: 22px; }
-    .switch input { opacity: 0; width: 0; height: 0; }
-    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
-    .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
-    input:checked + .slider { background-color: #3273dc; }
-    input:checked + .slider:before { transform: translateX(18px); }
+    video { 
+      width: 100%; height: 100%; 
+      object-fit: contain; 
+      display: block; 
+      outline: none;
+    }
 
-    /* Teaser Image Style */
-    .teaser-img-fluid {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #eee;
-      display: block;
-      margin: 0 auto;
+    .content-block { font-size: 1.1rem; text-align: justify; max-width: 1000px; margin: 0 auto; color: var(--text-secondary); }
+    .method-img { width: 100%; border-radius: 16px; margin-bottom: 2rem; box-shadow: var(--shadow-soft); display: block; margin: 0 auto; }
+    .teaser-img-fluid { width: 100%; border-radius: 16px; box-shadow: var(--shadow-soft); border: 1px solid #eee; display: block; margin: 0 auto; }
+    
+    .showcase-header { max-width: 1100px; margin: 3rem auto 0; text-align: center; padding: 0 20px; }
+    .statement-title { font-family: 'Google Sans', sans-serif; font-size: 1.25rem; font-weight: 500; color: #4a4a4a; line-height: 1.6; }
+    .highlight-core { color: #000; font-weight: 700; position: relative; display: inline-block; }
+    .highlight-core::after { content: ""; position: absolute; bottom: 2px; left: 0; width: 100%; height: 6px; background-color: rgba(50, 115, 220, 0.2); z-index: -1; transform: skewX(-10deg); }
+    .highlight-cond { font-weight: 600; color: var(--accent-blue); background: linear-gradient(to right, rgba(50, 115, 220, 0.05), rgba(50, 115, 220, 0.1)); padding: 2px 8px; border-radius: 6px; }
+
+    /* Mobile Adapter */
+    @media screen and (max-width: 768px) {
+      .swiper-button-next, .swiper-button-prev { 
+        opacity: 1 !important; transform: scale(1) !important;
+        width: 36px; height: 36px;
+      }
+      .swiper-button-next::after, .swiper-button-prev::after { font-size: 12px !important; }
+      
+      .publication-title-name { font-size: 2.5rem !important; }
+      .publication-title-text { font-size: 1.6rem !important; }
+      .demo-card { flex-direction: column; height: auto; }
+      .column-inputs, .column-result { flex: 1 1 auto; width: 100%; }
+      .img-container { height: auto; }
+      .prompt-card { height: 180px; }
+      .swiper-pagination-bullet { width: 48px !important; height: 20px !important; }
     }
   </style>
 </head>
 <body>
 
-  <div class="layout-control-panel">
-    <h3>Layout Variations</h3>
-    
-    <div class="control-item">
-      <label for="teaser-loc-toggle">Teaser Position:<br><span style="font-size:12px; color:#aaa;">(Off: Bottom / On: Top)</span></label>
-      <label class="switch">
-        <input type="checkbox" id="teaser-loc-toggle">
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <div class="control-item">
-      <label for="method-text-toggle">Method Description:<br><span style="font-size:12px; color:#aaa;">(Off: Hidden / On: Show)</span></label>
-      <label class="switch">
-        <input type="checkbox" id="method-text-toggle" checked>
-        <span class="slider"></span>
-      </label>
-    </div>
-  </div>
-
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop has-text-centered">
-        <h1 class="title is-1 publication-title main-title"><span class="grad2">WildActor</span></h1>
-        <h1 class="title is-2 publication-title sub-title">Unconstrained Identity-Preserving Video Generation</h1>
         
-        <div class="is-size-5 mb-4">
+        <h1 class="title is-1 publication-title-name"><span class="grad2">WildActor</span></h1>
+        <h1 class="title is-1 publication-title-text">Unconstrained Identity-Preserving Video Generation</h1>
+        
+        <div class="is-size-5 mb-4 publication-authors">
           <span class="author-block"><a href="https://scholar.google.com/citations?user=HMn_64gAAAAJ&hl=zh-CN" target="_blank">Qin Guo</a><sup>1</sup>,</span>
           <span class="author-block"><a href="https://tianyu-yang.com/" target="_blank">Tianyu Yang</a><sup>2</sup>,</span>
           <span class="author-block"><a href="https://xuanhuahe.github.io/" target="_blank">Xuanhua He</a><sup>1</sup>,</span>
@@ -260,14 +241,18 @@
           <span class="author-block"><a href="https://scholar.google.com/citations?user=OuSPv-AAAAAJ&hl=en" target="_blank">Dan Xu</a><sup>1†</sup></span>
         </div>
 
-        <div class="is-size-5 mb-4"><sup>1</sup>HKUST &nbsp; <sup>2</sup>Meituan &nbsp; <sup>3</sup>NUS</div>
+        <div class="is-size-5 mb-4 publication-authors">
+          <span class="author-block"><sup>1</sup>HKUST&nbsp;&nbsp;&nbsp;</span>
+          <span class="author-block"><sup>2</sup>Meituan&nbsp;&nbsp;&nbsp;</span>
+          <span class="author-block"><sup>3</sup>NUS</span>
+        </div>
         <div class="is-size-6 mb-5"><b>†Corresponding author</b></div>
 
         <div class="publication-links">
           <a href="#" class="button is-normal is-rounded is-dark external-link">
             <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
           </a>
-          <a href="#" class="button is-normal is-rounded is-dark external-link">
+          <a href="https://github.com/MeiGen-AI/WildActor" class="button is-normal is-rounded is-dark external-link">
             <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
           </a>
           <a href="#" class="button is-normal is-rounded is-dark external-link">
@@ -278,65 +263,185 @@
           </a>
         </div>
 
-        <div id="teaser-placeholder-top" style="margin-top: 3rem;"></div>
+        <div id="teaser-content-wrapper" style="margin-top: 4rem; margin-bottom: 6rem;">
+          <img src="materials/teaser.png" class="teaser-img-fluid" alt="WildActor Teaser">
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px; font-family: 'Google Sans', sans-serif;">
+            <span class="grad2">WildActor</span>: unconstrained human video generation under any-view condition.
+          </h2>
+        </div>
 
       </div>
     </div>
   </section>
 
   <section class="section pt-0">
-    <div class="container" style="max-width: 1500px;">
+    <div class="container" style="max-width: 1050px;">
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
+          
           <div class="swiper-slide">
             <div class="demo-card">
-              <div class="column-ref"><h3 class="col-header">Reference Identity</h3><div class="img-container"><div class="img-box" style="flex:0 0 100%"><img src="materials/8c4af62ec5b435cafabd61cfdd599fcf_ref_3views.jpg"></div></div></div>
-              <div class="column-video"><h3 class="col-header">Synthesized Video</h3><div class="video-box"><video autoplay muted loop playsinline src="materials/8c4af62ec5b435cafabd61cfdd599fcf_sequential.mp4"></video></div></div>
-              <div class="column-prompt"><h3 class="col-header">Prompt Sequence</h3><div class="prompt-card"><span class="stage-label">Stage 1</span><span class="prompt-text">A blond male mountain biker poised on a narrow trail in a misty forest.</span><span class="stage-label">Stage 2</span><span class="prompt-text">Crouches inspecting the front tire of his bike with a determined expression.</span><span class="stage-label">Stage 3</span><span class="prompt-text">Begins to walk forward into the shadows, disappearing into the dense foliage.</span></div></div>
+              <div class="column-inputs">
+                <h3 class="col-header">Reference Identity</h3>
+                <div class="img-container">
+                  <div class="img-box"><img src="materials/8c4af62ec5b435cafabd61cfdd599fcf_ref_3views.jpg"></div>
+                </div>
+                <div class="prompt-box-wrapper">
+                  <h3 class="col-header">Prompt Sequence</h3>
+                  <div class="prompt-card">
+                    <span class="stage-label">Stage 1</span><span class="prompt-text">A blond male mountain biker poised on a narrow trail in a misty forest.</span>
+                    <span class="stage-label">Stage 2</span><span class="prompt-text">Crouches inspecting the front tire of his bike with a determined expression.</span>
+                    <span class="stage-label">Stage 3</span><span class="prompt-text">Begins to walk forward into the shadows, disappearing into the dense foliage.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="column-result">
+                <h3 class="col-header">Synthesized Video</h3>
+                <div class="video-box"><video autoplay muted loop playsinline src="materials/8c4af62ec5b435cafabd61cfdd599fcf_sequential.mp4"></video></div>
+              </div>
             </div>
           </div>
+
           <div class="swiper-slide">
             <div class="demo-card">
-              <div class="column-ref"><h3 class="col-header">Reference Identity</h3><div class="img-container"><div class="img-box"><img src="materials/049411672e8afe5601f4a905504d0a61_ref_TypeA_body_7.png"></div><div class="img-box"><img src="materials/049411672e8afe5601f4a905504d0a61_ref_TypeA_body_8.png"></div></div></div>
-              <div class="column-video"><h3 class="col-header">Synthesized Video</h3><div class="video-box"><video autoplay muted loop playsinline src="materials/049411672e8afe5601f4a905504d0a61_sequential.mp4"></video></div></div>
-              <div class="column-prompt"><h3 class="col-header">Prompt Sequence</h3><div class="prompt-card"><span class="stage-label">Stage 1</span><span class="prompt-text">A young woman dressed in a black crop top... begins a slow 180-degree turn.</span><span class="stage-label">Stage 2</span><span class="prompt-text">Mid-turn, she completes the rotation to show her back, showcasing the knot of her yellow sarong.</span><span class="stage-label">Stage 3</span><span class="prompt-text">Returning fully to face camera, demonstrating perfect 3D consistency and character fidelity.</span></div></div>
+              <div class="column-inputs">
+                <h3 class="col-header">Reference Identity</h3>
+                <div class="img-container">
+                  <div class="img-box"><img src="materials/049411672e8afe5601f4a905504d0a61_ref_TypeA_body_7.png"></div>
+                  <div class="img-box"><img src="materials/049411672e8afe5601f4a905504d0a61_ref_TypeA_body_8.png"></div>
+                </div>
+                <div class="prompt-box-wrapper">
+                  <h3 class="col-header">Prompt Sequence</h3>
+                  <div class="prompt-card">
+                    <span class="stage-label">Stage 1</span><span class="prompt-text">A young woman dressed in a black crop top... begins a slow 180-degree turn.</span>
+                    <span class="stage-label">Stage 2</span><span class="prompt-text">Mid-turn, she completes the rotation to show her back, showcasing the knot of her yellow sarong.</span>
+                    <span class="stage-label">Stage 3</span><span class="prompt-text">Returning fully to face camera, demonstrating perfect 3D consistency and character fidelity.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="column-result">
+                <h3 class="col-header">Synthesized Video</h3>
+                <div class="video-box"><video autoplay muted loop playsinline src="materials/049411672e8afe5601f4a905504d0a61_sequential.mp4"></video></div>
+              </div>
             </div>
           </div>
+
           <div class="swiper-slide">
             <div class="demo-card">
-              <div class="column-ref"><h3 class="col-header">Reference Identity</h3><div class="img-container"><div class="img-box" style="flex:0 0 100%"><img src="materials/1d1e1995feb98ac431f2796363b574ee_ref_3views.jpg"></div></div></div>
-              <div class="column-video"><h3 class="col-header">Synthesized Video</h3><div class="video-box"><video autoplay muted loop playsinline src="materials/1d1e1995feb98ac431f2796363b574ee_sequential.mp4"></video></div></div>
-              <div class="column-prompt"><h3 class="col-header">Prompt Sequence</h3><div class="prompt-card"><span class="stage-label">Stage 1</span><span class="prompt-text">A male skier wearing an orange hooded jacket stands atop a snowy peak.</span><span class="stage-label">Stage 2</span><span class="prompt-text">Pushes off, carving smooth S-turns down the powdery slope.</span><span class="stage-label">Stage 3</span><span class="prompt-text">Reaching a flatter section, the skier slows to a stop with a satisfied smile.</span></div></div>
+              <div class="column-inputs">
+                <h3 class="col-header">Reference Identity</h3>
+                <div class="img-container">
+                  <div class="img-box"><img src="materials/1d1e1995feb98ac431f2796363b574ee_ref_3views.jpg"></div>
+                </div>
+                <div class="prompt-box-wrapper">
+                  <h3 class="col-header">Prompt Sequence</h3>
+                  <div class="prompt-card">
+                    <span class="stage-label">Stage 1</span><span class="prompt-text">A male skier wearing an orange hooded jacket stands atop a snowy peak.</span>
+                    <span class="stage-label">Stage 2</span><span class="prompt-text">Pushes off, carving smooth S-turns down the powdery slope.</span>
+                    <span class="stage-label">Stage 3</span><span class="prompt-text">Reaching a flatter section, the skier slows to a stop with a satisfied smile.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="column-result">
+                <h3 class="col-header">Synthesized Video</h3>
+                <div class="video-box"><video autoplay muted loop playsinline src="materials/1d1e1995feb98ac431f2796363b574ee_sequential.mp4"></video></div>
+              </div>
             </div>
           </div>
+
           <div class="swiper-slide">
             <div class="demo-card">
-              <div class="column-ref"><h3 class="col-header">Reference Identity</h3><div class="img-container"><div class="img-box" style="flex:0 0 100%"><img src="materials/96c9bf66a1ce3aa9630429e151c358b6_ref_3views.jpg"></div></div></div>
-              <div class="column-video"><h3 class="col-header">Synthesized Video</h3><div class="video-box"><video autoplay muted loop playsinline src="materials/96c9bf66a1ce3aa9630429e151c358b6_sequential.mp4"></video></div></div>
-              <div class="column-prompt"><h3 class="col-header">Prompt Sequence</h3><div class="prompt-card"><span class="stage-label">Stage 1</span><span class="prompt-text">A male hiker adjusting the straps of his olive green backpack in grasslands.</span><span class="stage-label">Stage 2</span><span class="prompt-text">Begins to walk steadily up a gentle incline while the camera follows.</span><span class="stage-label">Stage 3</span><span class="prompt-text">Reaching a scenic overlook, he unclips his backpack and retrieves a camera.</span></div></div>
+              <div class="column-inputs">
+                <h3 class="col-header">Reference Identity</h3>
+                <div class="img-container">
+                  <div class="img-box"><img src="materials/96c9bf66a1ce3aa9630429e151c358b6_ref_3views.jpg"></div>
+                </div>
+                <div class="prompt-box-wrapper">
+                  <h3 class="col-header">Prompt Sequence</h3>
+                  <div class="prompt-card">
+                    <span class="stage-label">Stage 1</span><span class="prompt-text">A male hiker adjusting the straps of his olive green backpack in grasslands.</span>
+                    <span class="stage-label">Stage 2</span><span class="prompt-text">Begins to walk steadily up a gentle incline while the camera follows.</span>
+                    <span class="stage-label">Stage 3</span><span class="prompt-text">Reaching a scenic overlook, he unclips his backpack and retrieves a camera.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="column-result">
+                <h3 class="col-header">Synthesized Video</h3>
+                <div class="video-box"><video autoplay muted loop playsinline src="materials/96c9bf66a1ce3aa9630429e151c358b6_sequential.mp4"></video></div>
+              </div>
             </div>
           </div>
+
           <div class="swiper-slide">
             <div class="demo-card">
-              <div class="column-ref"><h3 class="col-header">Reference Identity</h3><div class="img-container"><div class="img-box" style="flex:0 0 100%"><img src="materials/abd9e657d2ba9ce6cc0dad29a1328885_ref_3views.jpg"></div></div></div>
-              <div class="column-video"><h3 class="col-header">Synthesized Video</h3><div class="video-box"><video autoplay muted loop playsinline src="materials/abd9e657d2ba9ce6cc0dad29a1328885_sequential.mp4"></video></div></div>
-              <div class="column-prompt"><h3 class="col-header">Prompt Sequence</h3><div class="prompt-card"><span class="stage-label">Stage 1</span><span class="prompt-text">In a dimly lit jazz club, the man walks onto the stage adjusting the stand.</span><span class="stage-label">Stage 2</span><span class="prompt-text">Stands center stage tapping his brown boot rhythmically before performing.</span><span class="stage-label">Stage 3</span><span class="prompt-text">Takes a deep breath and closes his eyes to soak in the atmosphere.</span></div></div>
+              <div class="column-inputs">
+                <h3 class="col-header">Reference Identity</h3>
+                <div class="img-container">
+                  <div class="img-box"><img src="materials/abd9e657d2ba9ce6cc0dad29a1328885_ref_3views.jpg"></div>
+                </div>
+                <div class="prompt-box-wrapper">
+                  <h3 class="col-header">Prompt Sequence</h3>
+                  <div class="prompt-card">
+                    <span class="stage-label">Stage 1</span><span class="prompt-text">In a dimly lit jazz club, the man walks onto the stage adjusting the stand.</span>
+                    <span class="stage-label">Stage 2</span><span class="prompt-text">Stands center stage tapping his brown boot rhythmically before performing.</span>
+                    <span class="stage-label">Stage 3</span><span class="prompt-text">Takes a deep breath and closes his eyes to soak in the atmosphere.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="column-result">
+                <h3 class="col-header">Synthesized Video</h3>
+                <div class="video-box"><video autoplay muted loop playsinline src="materials/abd9e657d2ba9ce6cc0dad29a1328885_sequential.mp4"></video></div>
+              </div>
             </div>
           </div>
+
           <div class="swiper-slide">
             <div class="demo-card">
-              <div class="column-ref"><h3 class="col-header">Reference Identity</h3><div class="img-container"><div class="img-box" style="flex:0 0 100%"><img src="materials/ca8aa9f02cdb87ea91fd9954ffe0cdd0_ref_3views.jpg"></div></div></div>
-              <div class="column-video"><h3 class="col-header">Synthesized Video</h3><div class="video-box"><video autoplay muted loop playsinline src="materials/ca8aa9f02cdb87ea91fd9954ffe0cdd0_sequential.mp4"></video></div></div>
-              <div class="column-prompt"><h3 class="col-header">Prompt Sequence</h3><div class="prompt-card"><span class="stage-label">Stage 1</span><span class="prompt-text">A werewolf girl walks down a garden path admiring the flowers.</span><span class="stage-label">Stage 2</span><span class="prompt-text">Crouches to inspect a rose, leopard print pants contrasting with greenery.</span><span class="stage-label">Stage 3</span><span class="prompt-text">Stands and turns smiling softly as a gentle breeze blows through her hair.</span></div></div>
+              <div class="column-inputs">
+                <h3 class="col-header">Reference Identity</h3>
+                <div class="img-container">
+                  <div class="img-box"><img src="materials/ca8aa9f02cdb87ea91fd9954ffe0cdd0_ref_3views.jpg"></div>
+                </div>
+                <div class="prompt-box-wrapper">
+                  <h3 class="col-header">Prompt Sequence</h3>
+                  <div class="prompt-card">
+                    <span class="stage-label">Stage 1</span><span class="prompt-text">A werewolf girl walks down a garden path admiring the flowers.</span>
+                    <span class="stage-label">Stage 2</span><span class="prompt-text">Crouches to inspect a rose, leopard print pants contrasting with greenery.</span>
+                    <span class="stage-label">Stage 3</span><span class="prompt-text">Stands and turns smiling softly as a gentle breeze blows through her hair.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="column-result">
+                <h3 class="col-header">Synthesized Video</h3>
+                <div class="video-box"><video autoplay muted loop playsinline src="materials/ca8aa9f02cdb87ea91fd9954ffe0cdd0_sequential.mp4"></video></div>
+              </div>
             </div>
           </div>
+
           <div class="swiper-slide">
             <div class="demo-card">
-              <div class="column-ref"><h3 class="col-header">Reference Identity</h3><div class="img-container"><div class="img-box"><img src="materials/f77a394b5dd398ffb8de6d9d0e59e076_ref_TypeA_body_0.png"></div><div class="img-box"><img src="materials/f77a394b5dd398ffb8de6d9d0e59e076_ref_TypeA_body_6.png"></div></div></div>
-              <div class="column-video"><h3 class="col-header">Synthesized Video</h3><div class="video-box"><video autoplay muted loop playsinline src="materials/f77a394b5dd398ffb8de6d9d0e59e076_sequential.mp4"></video></div></div>
-              <div class="column-prompt"><h3 class="col-header">Prompt Sequence</h3><div class="prompt-card"><span class="stage-label">Stage 1</span><span class="prompt-text">A bearded man leans over a workbench tracing a red wire.</span><span class="stage-label">Stage 2</span><span class="prompt-text">Tests an electrical connection with a multimeter; sparks illuminate his face.</span><span class="stage-label">Stage 3</span><span class="prompt-text">Steps back as a recliner chair begins to hum and recline automatically.</span></div></div>
+              <div class="column-inputs">
+                <h3 class="col-header">Reference Identity</h3>
+                <div class="img-container">
+                  <div class="img-box"><img src="materials/f77a394b5dd398ffb8de6d9d0e59e076_ref_TypeA_body_0.png"></div>
+                  <div class="img-box"><img src="materials/f77a394b5dd398ffb8de6d9d0e59e076_ref_TypeA_body_6.png"></div>
+                </div>
+                <div class="prompt-box-wrapper">
+                  <h3 class="col-header">Prompt Sequence</h3>
+                  <div class="prompt-card">
+                    <span class="stage-label">Stage 1</span><span class="prompt-text">A bearded man leans over a workbench tracing a red wire.</span>
+                    <span class="stage-label">Stage 2</span><span class="prompt-text">Tests an electrical connection with a multimeter; sparks illuminate his face.</span>
+                    <span class="stage-label">Stage 3</span><span class="prompt-text">Steps back as a recliner chair begins to hum and recline automatically.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="column-result">
+                <h3 class="col-header">Synthesized Video</h3>
+                <div class="video-box"><video autoplay muted loop playsinline src="materials/f77a394b5dd398ffb8de6d9d0e59e076_sequential.mp4"></video></div>
+              </div>
             </div>
           </div>
+
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
@@ -358,7 +463,7 @@
 
   <section class="section">
     <div class="container is-max-desktop">
-      <h2 class="section-title">Abstract</h2>
+      <h2 class="title is-3 has-text-centered">Abstract</h2>
       <div class="content-block">
         Production-ready human video generation requires digital actors to maintain strictly consistent full-body identities across dynamic shots, viewpoints and motions, a setting that remains challenging for existing methods. Prior methods often suffer from face-centric behavior that neglects body-level consistency, or produce copy-paste artifacts where subjects appear rigid due to pose locking. We present <b>Actor-18M</b>, a large-scale human video dataset designed to capture identity consistency under unconstrained viewpoints and environments. Actor-18M comprises <b>1.6M videos with 18M corresponding human images</b>, covering both arbitrary views and canonical three-view representations. Leveraging Actor-18M, we propose <b>WildActor</b>, a framework for any-view conditioned human video generation. We introduce an <b>Asymmetric Identity-Preserving Attention (AIPA)</b> mechanism coupled with a <b>Viewpoint-Adaptive Monte Carlo Sampling</b> strategy. Evaluated on the proposed Actor-Bench, <b>WildActor</b> consistently preserves full body identity under diverse shot compositions, large viewpoint transitions, and substantial motions, surpassing existing methods in these challenging settings.
       </div>
@@ -367,41 +472,14 @@
 
   <section class="section pt-0">
     <div class="container is-max-desktop">
-      <h2 class="section-title">Methodology</h2>
+      <h2 class="title is-3 has-text-centered">Methodology</h2>
       <img src="assets/wildactor_method.png" class="method-img" alt="WildActor Method Architecture">
-      <div id="method-desc-wrapper" class="content-block desc-box">
-        <div id="method-text-content">
-          <p><b>WildActor</b> is a framework that injects multi-view facial and body cues into a video DiT backbone through two core components:</p>
-          <ul class="ml-5 mt-3" style="list-style-type: disc;">
-            <li style="margin-bottom: 8px;">
-              <b>Asymmetric Identity-Preserving Attention (AIPA):</b> To prevent backbone noise from contaminating reference features, AIPA aggregates identity reference tokens and injects them into video tokens through an asymmetric flow. This preserves the generative prior of the backbone while ensuring high character fidelity.
-            </li>
-            <li style="margin-bottom: 8px;">
-              <b>Identity-Aware RoPE (I-RoPE):</b> Reference tokens are embedded with I-RoPE to explicitly distinguish them from video tokens in the shared spatio-temporal attention space.
-            </li>
-            <li style="margin-bottom: 8px;">
-              <b>Viewpoint-Adaptive Monte Carlo Sampling:</b> Multi-view references are dynamically selected and re-weighted during inference to ensure balanced manifold coverage and resolve viewpoint imbalance.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="teaser-section">
-    <div class="container is-max-desktop">
-      <div id="teaser-content-wrapper">
-        <img src="materials/teaser.png" class="teaser-img-fluid" alt="WildActor Teaser">
-        <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-          <span class="grad2">WildActor</span>: unconstrained human video generation under any-view condition.
-        </h2>
-      </div>
     </div>
   </section>
 
   <section class="section" style="background-color: #f8f9fa;">
     <div class="container is-max-desktop">
-      <h2 class="section-title">Actor-18M Dataset</h2>
+      <h2 class="title is-3 has-text-centered">Actor-18M Dataset</h2>
       <img src="assets/dataset_overview.png" class="method-img" alt="Actor-18M Pipeline">
       <div class="content-block desc-box">
         <p><b>Actor-18M</b> is the largest human-centric video dataset (1.6M videos / 18M images) constructed to capture view-invariant identity:</p>
@@ -425,7 +503,7 @@
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="section-title">BibTeX</h2>
+      <h2 class="title is-3 has-text-centered">BibTeX</h2>
       <pre style="background-color: #f5f5f5; padding: 25px; border-radius: 12px; font-size: 0.95rem; border: 1px solid #eee; overflow-x: auto;"><code>@article{guo2026wildactor,
   title={WildActor: Unconstrained Identity-Preserving Video Generation},
   author={Guo, Qin and Yang, Tianyu and He, Xuanhua and Shen, Fei and Zhang, Yong and Kang, Zhuoliang and Wei, Xiaoming and Dan Xu},
@@ -452,52 +530,13 @@
         el: ".swiper-pagination",
         clickable: true,
         renderBullet: function (index, className) {
-          // 缩略图路径配置
+          // Thumbnail path
           return '<span class="' + className + '" style="background-image: url(thumbnails/' + (index + 1) + '.png);"></span>';
         },
       },
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-      }
-    });
-
-    // --- Dynamic Layout Logic ---
-    const teaserToggle = document.getElementById('teaser-loc-toggle');
-    const methodToggle = document.getElementById('method-text-toggle');
-    
-    // Elements to move
-    const teaserContent = document.getElementById('teaser-content-wrapper');
-    
-    // Targets
-    const topPlaceholder = document.getElementById('teaser-placeholder-top');
-    const bottomSection = document.getElementById('teaser-section');
-    const bottomContainer = bottomSection.querySelector('.container');
-    
-    // Method Wrapper (Box + Text)
-    const methodWrapper = document.getElementById('method-desc-wrapper');
-
-    // 1. Teaser Position Switch
-    teaserToggle.addEventListener('change', function() {
-      if (this.checked) {
-        // Move to TOP (Authors below)
-        topPlaceholder.appendChild(teaserContent);
-        bottomSection.style.display = 'none'; // Hide bottom container space
-        topPlaceholder.style.display = 'block';
-      } else {
-        // Move to BOTTOM (Method below)
-        bottomContainer.appendChild(teaserContent);
-        bottomSection.style.display = 'block';
-        topPlaceholder.style.display = 'none';
-      }
-    });
-
-    // 2. Method Text Toggle (Controls entire box wrapper)
-    methodToggle.addEventListener('change', function() {
-      if (this.checked) {
-        methodWrapper.style.display = 'block';
-      } else {
-        methodWrapper.style.display = 'none';
       }
     });
   </script>
