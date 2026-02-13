@@ -84,21 +84,21 @@
     .swiper { 
       width: 100%; 
       max-width: 100%; 
-      padding-bottom: 60px !important; /* 调整底部空间给分页器 */
-      position: relative; 
-      overflow: hidden; /* 关键修改：隐藏溢出，只显示当前一个 */
+      padding-bottom: 60px !important;
+      position: relative;
+      overflow: hidden;
     }
 
     /* --- BEAUTIFIED NAVIGATION ARROWS --- */
-    .swiper-button-next, .swiper-button-prev { 
-      opacity: 0; 
+    .swiper-button-next, .swiper-button-prev {
+      opacity: 0;
       transform: scale(0.9);
-      background: rgba(255, 255, 255, 0.85); 
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(4px);
       border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 50%; 
-      width: 44px; height: 44px; 
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       color: #333 !important;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
@@ -109,66 +109,70 @@
       transform: scale(1);
     }
 
-    .swiper-button-next:hover, .swiper-button-prev:hover { 
-      background: #fff; 
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background: #fff;
       box-shadow: 0 6px 16px rgba(0,0,0,0.12);
       transform: scale(1.05);
       border-color: rgba(0,0,0,0.15);
     }
 
-    .swiper-button-next::after, .swiper-button-prev::after { 
-      font-size: 16px !important; 
-      font-weight: 800; 
+    .swiper-button-next::after, .swiper-button-prev::after {
+      font-size: 16px !important;
+      font-weight: 800;
     }
 
     /* Pagination (Thumbnails) */
-    .swiper-pagination-bullet { 
-      width: 100px; height: 40px; background-color: #f0f0f0; opacity: 0.6; border-radius: 4px; 
-      background-size: contain; background-repeat: no-repeat; background-position: center; 
-      border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); margin: 0 6px !important; 
+    .swiper-pagination-bullet {
+      width: 100px; height: 40px; background-color: #f0f0f0; opacity: 0.6; border-radius: 4px;
+      background-size: contain; background-repeat: no-repeat; background-position: center;
+      border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); margin: 0 6px !important;
       transition: all 0.3s ease;
     }
-    .swiper-pagination-bullet-active { 
-      opacity: 1; border-color: #3273dc; transform: scale(1.1); background-color: #fff; 
+    .swiper-pagination-bullet-active {
+      opacity: 1; border-color: #3273dc; transform: scale(1.1); background-color: #fff;
       box-shadow: 0 4px 10px rgba(50, 115, 220, 0.3);
     }
 
     /* 2-COLUMN LAYOUT */
-    .demo-card { 
-      display: flex; gap: 25px; 
-      background: #fff; padding: 25px; 
-      border-radius: 20px; box-shadow: var(--shadow-card); border: 1px solid #f0f0f0; 
-      height: 420px; 
-      align-items: stretch; box-sizing: border-box; 
+    .demo-card {
+      display: flex; gap: 25px;
+      background: #fff; padding: 25px;
+      border-radius: 20px; box-shadow: var(--shadow-card); border: 1px solid #f0f0f0;
+      height: 420px;
+      align-items: stretch; box-sizing: border-box;
     }
-    
-    .col-header { 
-      font-size: 0.9rem !important; font-weight: 700 !important; color: #111 !important; 
-      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px !important; 
+
+    .col-header {
+      font-size: 0.9rem !important; font-weight: 700 !important; color: #111 !important;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px !important;
       display: flex; align-items: center; justify-content: center; gap: 6px;
     }
 
-    .column-inputs { flex: 0 0 35%; display: flex; flex-direction: column; min-width: 0; }
-    .column-result { flex: 0 0 63%; display: flex; flex-direction: column; }
+    /* --- UPDATED COLUMN WIDTHS --- */
+    /* Reduced inputs width from 35% to 24% to give more space to video */
+    .column-inputs { flex: 0 0 32%; display: flex; flex-direction: column; min-width: 0; }
+    
+    /* Increased result width from 63% to 73% */
+    .column-result { flex: 0 0 65%; display: flex; flex-direction: column; }
 
     /* Input Images */
     .img-container { display: flex; gap: 8px; height: 160px; margin-bottom: 15px; }
     .img-box { flex: 1; height: 100%; }
-    .img-box img { 
-      width: 100%; height: 100%; object-fit: contain; 
-      border-radius: 10px; border: 1px solid #eee; background: #fcfcfc; 
+    .img-box img {
+      width: 100%; height: 100%; object-fit: contain;
+      border-radius: 10px; border: 1px solid #eee; background: #fcfcfc;
     }
 
     /* Prompt Box */
     .prompt-box-wrapper { flex-grow: 1; display: flex; flex-direction: column; min-height: 0; }
-    .prompt-card { 
-      background: #f8fbff; padding: 15px; 
-      border: 1px solid #eef4fc; border-radius: 12px; 
-      flex-grow: 1; overflow-y: auto; 
+    .prompt-card {
+      background: #f8fbff; padding: 15px;
+      border: 1px solid #eef4fc; border-radius: 12px;
+      flex-grow: 1; overflow-y: auto;
     }
-    .stage-label { 
-      font-weight: 800; font-size: 10px; color: #3273dc; display: block; 
-      margin-top: 8px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; 
+    .stage-label {
+      font-weight: 800; font-size: 10px; color: #3273dc; display: block;
+      margin-top: 8px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;
     }
     .stage-label:first-child { margin-top: 0; }
     .prompt-text { color: #2c3e50; font-size: 13px; line-height: 1.4; font-weight: 500; }
@@ -176,32 +180,76 @@
     .prompt-card::-webkit-scrollbar-thumb { background: #dce5f0; border-radius: 2px; }
 
     /* Video Box */
-    .video-box { 
-      border: 1px solid #eee; 
-      border-radius: 12px; 
-      overflow: hidden; 
-      background: #fcfcfc; 
-      flex-grow: 1; 
-      display: flex; align-items: center; justify-content: center; position: relative; 
+    .video-box {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fcfcfc;
+      flex-grow: 1;
+      display: flex; align-items: center; justify-content: center; position: relative;
       box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
     }
-    
-    video { 
-      width: 100%; height: 100%; 
-      object-fit: contain; 
-      display: block; 
+
+    /* --- UPDATED VIDEO STYLE --- */
+    video {
+      width: 100%; height: 100%;
+      /* Changed from contain to cover to eliminate whitespace */
+      object-fit: cover;
+      display: block;
       outline: none;
     }
 
-    .content-block { font-size: 1.1rem; text-align: justify; max-width: 1000px; margin: 0 auto; color: var(--text-secondary); }
-    .method-img { width: 100%; border-radius: 16px; margin-bottom: 2rem; box-shadow: var(--shadow-soft); display: block; margin: 0 auto; }
+    /* MODIFIED: Changed font-size from 1.1rem to 1.0rem */
+    .content-block {
+      font-size: 1.0rem;
+      text-align: justify;
+      max-width: 1000px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+    }
+
+    /* MODIFIED: Increased bottom margin to 6rem */
+    .method-img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      display: block;
+      margin: 0 auto 3rem auto; /* Changed 4rem to 6rem */
+    }
+
     .teaser-img-fluid { width: 100%; border-radius: 16px; box-shadow: var(--shadow-soft); border: 1px solid #eee; display: block; margin: 0 auto; }
-    
+
     .showcase-header { max-width: 1100px; margin: 3rem auto 0; text-align: center; padding: 0 20px; }
-    .statement-title { font-family: 'Google Sans', sans-serif; font-size: 1.25rem; font-weight: 500; color: #4a4a4a; line-height: 1.6; }
-    .highlight-core { color: #000; font-weight: 700; position: relative; display: inline-block; }
+
+    /* Statement Title Styles */
+    .statement-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.0rem;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+
+    .highlight-core {
+      color: #000;
+      font-weight: 400;
+      position: relative;
+      display: inline-block;
+    }
     .highlight-core::after { content: ""; position: absolute; bottom: 2px; left: 0; width: 100%; height: 6px; background-color: rgba(50, 115, 220, 0.2); z-index: -1; transform: skewX(-10deg); }
-    .highlight-cond { font-weight: 600; color: var(--accent-blue); background: linear-gradient(to right, rgba(50, 115, 220, 0.05), rgba(50, 115, 220, 0.1)); padding: 2px 8px; border-radius: 6px; }
+
+    .highlight-cond {
+      font-weight: 400;
+      font-size: 1em;
+      color: inherit;
+      background: none;
+      padding: 0;
+    }
+
+    .identity-sub {
+      font-size: 1em;
+      color: inherit;
+    }
 
     /* Mobile Adapter */
     @media screen and (max-width: 768px) {
@@ -265,7 +313,7 @@
 
         <div id="teaser-content-wrapper" style="margin-top: 4rem; margin-bottom: 6rem;">
           <img src="materials/teaser.png" class="teaser-img-fluid" alt="WildActor Teaser">
-          <h2 class="subtitle has-text-centered" style="margin-top: 15px; font-family: 'Google Sans', sans-serif;">
+          <h2 class="subtitle has-text-centered" style="margin-top: 2.5rem; font-family: 'Google Sans', sans-serif;">
             <span class="grad2">WildActor</span>: unconstrained human video generation under any-view condition.
           </h2>
         </div>
