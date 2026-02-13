@@ -138,7 +138,8 @@
       display: flex; gap: 25px;
       background: #fff; padding: 25px;
       border-radius: 20px; box-shadow: var(--shadow-card); border: 1px solid #f0f0f0;
-      height: 420px;
+      /* MODIFIED: Scaled height by ~12% (from 420px to 470px) */
+      height: 470px;
       align-items: stretch; box-sizing: border-box;
     }
 
@@ -149,14 +150,13 @@
     }
 
     /* --- UPDATED COLUMN WIDTHS --- */
-    /* Reduced inputs width from 35% to 24% to give more space to video */
-    .column-inputs { flex: 0 0 32%; display: flex; flex-direction: column; min-width: 0; }
-    
-    /* Increased result width from 63% to 73% */
-    .column-result { flex: 0 0 65%; display: flex; flex-direction: column; }
+    /* Inputs: ~27%, Result: ~70% to maintain wide video look */
+    .column-inputs { flex: 0 0 33%; display: flex; flex-direction: column; min-width: 0; }
+    .column-result { flex: 0 0 64%; display: flex; flex-direction: column; }
 
     /* Input Images */
-    .img-container { display: flex; gap: 8px; height: 160px; margin-bottom: 15px; }
+    /* MODIFIED: Scaled height by ~12% (from 160px to 180px) */
+    .img-container { display: flex; gap: 8px; height: 180px; margin-bottom: 15px; }
     .img-box { flex: 1; height: 100%; }
     .img-box img {
       width: 100%; height: 100%; object-fit: contain;
@@ -190,16 +190,14 @@
       box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
     }
 
-    /* --- UPDATED VIDEO STYLE --- */
+    /* --- VIDEO STYLE --- */
     video {
       width: 100%; height: 100%;
-      /* Changed from contain to cover to eliminate whitespace */
       object-fit: cover;
       display: block;
       outline: none;
     }
 
-    /* MODIFIED: Changed font-size from 1.1rem to 1.0rem */
     .content-block {
       font-size: 1.0rem;
       text-align: justify;
@@ -208,13 +206,12 @@
       color: var(--text-secondary);
     }
 
-    /* MODIFIED: Increased bottom margin to 6rem */
     .method-img {
       width: 100%;
       border-radius: 16px;
       box-shadow: var(--shadow-soft);
       display: block;
-      margin: 0 auto 3rem auto; /* Changed 4rem to 6rem */
+      margin: 0 auto 3rem auto; 
     }
 
     .teaser-img-fluid { width: 100%; border-radius: 16px; box-shadow: var(--shadow-soft); border: 1px solid #eee; display: block; margin: 0 auto; }
@@ -323,7 +320,7 @@
   </section>
 
   <section class="section pt-0">
-    <div class="container" style="max-width: 1050px;">
+    <div class="container" style="max-width: 1176px;">
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           
