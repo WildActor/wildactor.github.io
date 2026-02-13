@@ -72,7 +72,9 @@
     }
     .icon { margin-right: 4px; display: inline-flex; align-items: center; justify-content: center; }
 
-    section.section { padding: 4rem 1.5rem; }
+    /* Section Padding: 统一间距 */
+    section.section { padding: 3rem 1.5rem; }
+    
     .hero-body { padding-top: 3rem !important; padding-bottom: 2rem !important; }
 
     .subtitle {
@@ -84,12 +86,12 @@
     .swiper { 
       width: 100%; 
       max-width: 100%; 
-      padding-bottom: 60px !important;
+      padding-bottom: 70px !important;
       position: relative;
       overflow: hidden;
     }
 
-    /* --- BEAUTIFIED NAVIGATION ARROWS --- */
+    /* --- NAVIGATION ARROWS --- */
     .swiper-button-next, .swiper-button-prev {
       opacity: 0;
       transform: scale(0.9);
@@ -138,7 +140,6 @@
       display: flex; gap: 25px;
       background: #fff; padding: 25px;
       border-radius: 20px; box-shadow: var(--shadow-card); border: 1px solid #f0f0f0;
-      /* MODIFIED: Scaled height by ~12% (from 420px to 470px) */
       height: 470px;
       align-items: stretch; box-sizing: border-box;
     }
@@ -148,14 +149,11 @@
       text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px !important;
       display: flex; align-items: center; justify-content: center; gap: 6px;
     }
-
-    /* --- UPDATED COLUMN WIDTHS --- */
-    /* Inputs: ~27%, Result: ~70% to maintain wide video look */
+    
     .column-inputs { flex: 0 0 33%; display: flex; flex-direction: column; min-width: 0; }
     .column-result { flex: 0 0 64%; display: flex; flex-direction: column; }
 
     /* Input Images */
-    /* MODIFIED: Scaled height by ~12% (from 160px to 180px) */
     .img-container { display: flex; gap: 8px; height: 180px; margin-bottom: 15px; }
     .img-box { flex: 1; height: 100%; }
     .img-box img {
@@ -190,7 +188,6 @@
       box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
     }
 
-    /* --- VIDEO STYLE --- */
     video {
       width: 100%; height: 100%;
       object-fit: cover;
@@ -211,14 +208,18 @@
       border-radius: 16px;
       box-shadow: var(--shadow-soft);
       display: block;
-      margin: 0 auto 3rem auto; 
+      margin: 0 auto;
+    }
+    
+    /* --- UPDATED: Increased text spacing to 4rem (approx 2 more lines) --- */
+    .desc-box {
+      margin-top: 3rem; 
     }
 
     .teaser-img-fluid { width: 100%; border-radius: 16px; box-shadow: var(--shadow-soft); border: 1px solid #eee; display: block; margin: 0 auto; }
 
-    .showcase-header { max-width: 1100px; margin: 3rem auto 0; text-align: center; padding: 0 20px; }
+    .showcase-header { max-width: 1100px; margin: 2rem auto 0; text-align: center; padding: 0 20px; } 
 
-    /* Statement Title Styles */
     .statement-title {
       font-family: 'Google Sans', sans-serif;
       font-size: 1.0rem;
@@ -236,11 +237,15 @@
     .highlight-core::after { content: ""; position: absolute; bottom: 2px; left: 0; width: 100%; height: 6px; background-color: rgba(50, 115, 220, 0.2); z-index: -1; transform: skewX(-10deg); }
 
     .highlight-cond {
-      font-weight: 400;
-      font-size: 1em;
-      color: inherit;
-      background: none;
-      padding: 0;
+      font-weight: 500;
+      font-size: 0.95em;
+      color: #2c3e50;
+      background-color: #e3f2fd;
+      border: 1px solid #bbdefb;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin: 0 3px;
+      display: inline-block;
     }
 
     .identity-sub {
@@ -263,6 +268,8 @@
       .img-container { height: auto; }
       .prompt-card { height: 180px; }
       .swiper-pagination-bullet { width: 48px !important; height: 20px !important; }
+      
+      .highlight-cond { display: block; margin-bottom: 5px; }
     }
   </style>
 </head>
@@ -308,9 +315,9 @@
           </a>
         </div>
 
-        <div id="teaser-content-wrapper" style="margin-top: 4rem; margin-bottom: 6rem;">
+        <div id="teaser-content-wrapper" style="margin-top: 2.5rem; margin-bottom: 2.5rem;">
           <img src="materials/teaser.png" class="teaser-img-fluid" alt="WildActor Teaser">
-          <h2 class="subtitle has-text-centered" style="margin-top: 2.5rem; font-family: 'Google Sans', sans-serif;">
+          <h2 class="subtitle has-text-centered" style="margin-top: 2rem; font-family: 'Google Sans', sans-serif;">
             <span class="grad2">WildActor</span>: unconstrained human video generation under any-view condition.
           </h2>
         </div>
@@ -319,7 +326,7 @@
     </div>
   </section>
 
-  <section class="section pt-0">
+  <section class="section" style="background-color: #f8f9fa;">
     <div class="container" style="max-width: 1176px;">
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
@@ -515,14 +522,14 @@
     </div>
   </section>
 
-  <section class="section pt-0">
+  <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Methodology</h2>
       <img src="assets/wildactor_method.png" class="method-img" alt="WildActor Method Architecture">
     </div>
   </section>
 
-  <section class="section" style="background-color: #f8f9fa;">
+  <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Actor-18M Dataset</h2>
       <img src="assets/dataset_overview.png" class="method-img" alt="Actor-18M Pipeline">
